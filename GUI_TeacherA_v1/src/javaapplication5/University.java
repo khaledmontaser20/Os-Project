@@ -13,17 +13,35 @@ package javaapplication5;
  */
 public class University {
 
+    
+    
+    Display d1 = new Display();
     /**
      * How many chairs does the Teaching Assistant have in front of his office
      */
-    private final static int NUMBER_OF_CHAIRS = 3;
+    private   static int NUMBER_OF_CHAIRS  =1  ;
 
     /**
      * Number of students which will be studying in parallel
      */
-    private final static int NUMBER_OF_STUDENTS = 2;
+    private   static int NUMBER_OF_STUDENTS = 3;
+    private   static int NUMBER_OF_TAs = 0;
 
+        public  University (int NUMBER_OF_CHAIRS , int NUMBER_OF_STUDENTS  , int NUMBER_OF_TAs)
+        {   
+            this.NUMBER_OF_CHAIRS =NUMBER_OF_CHAIRS;
+            this.NUMBER_OF_STUDENTS =NUMBER_OF_STUDENTS;
+            this.NUMBER_OF_TAs =NUMBER_OF_TAs;    
+        }
+    
     public static void main(String[] args) {
+        
+//        for (int i=0 ;i<2;i++)
+//        {
+//        TeachingAssistant  aa= new TeachingAssistant(NUMBER_OF_CHAIRS);
+//        }
+        
+        
         TeachingAssistant ta = new TeachingAssistant(NUMBER_OF_CHAIRS);
         // Get the TA starting
         ta.start();
@@ -38,7 +56,7 @@ public class University {
         }
 
         try {
-            // Wait for all students to get tired
+            // Wait for all students to get tired/--> Done
             for (int i = 0; i < NUMBER_OF_STUDENTS; ++i) {
                 students[i].join();
             }

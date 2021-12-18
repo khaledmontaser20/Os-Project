@@ -39,7 +39,7 @@ public class TeachingAssistant extends Thread {
     /** Max number of chairs available in the waiting queue */
     private final int numberOfChairs;
 
-    /** The TA will continue to nap/work while this flag is true */
+    /** The TA will continue to sleep/work while this flag is true */
     private boolean shouldWork;
     
     /** Minimum time it takes to help, in milliseconds */
@@ -70,9 +70,9 @@ public class TeachingAssistant extends Thread {
         
         // Not busy, accept the student
         this.currentStudent = s;
-        
+       
         // TODO - notify the TA to wake up
-        
+         this.shouldWork = true;
         return true;
     }
     
@@ -165,7 +165,7 @@ public class TeachingAssistant extends Thread {
      * @throws InterruptedException 
      */
     private void sleepUntilFirstStudent() throws InterruptedException {
-        System.out.println("TA: TA taking a nap. ZzZz...");
+        System.out.println("TA: TA Sleeping...");
         
         // TODO - Wait for "Wake up" signal from a student
     }
@@ -202,6 +202,7 @@ public class TeachingAssistant extends Thread {
      * @return 
      */
     private int getNumberOfFreeChairs() {
+        
         return this.numberOfChairs - waitingStudents.size();
     }
 }
